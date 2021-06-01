@@ -1,17 +1,34 @@
 import React from "react"
-import logo from "./logo.svg"
+import { Route } from "react-router"
 import "./App.css"
-import Header from "./components/Header"
-import NavBar from "./components/NavBar"
-import Profile from "./components/Profile"
+import DialogsContainer from "./components/Dialogs/DialogsContainer"
+import Header from "./components/Header/Header"
+import Music from "./components/Music/Music"
+import News from "./components/News/News"
+import Profile from "./components/Profile/Profile"
+import Settings from "./components/Settings/Settings"
+import Sidebar from "./components/Sidebar/Sidebar"
+import store from "./redux/redux-store"
 
-const App = () => {
+const App = props => {
 	return (
-		<div className='wrapper'>
+		<div className="wrapper">
 			<Header />
-			<main className='main'>
-				<NavBar />
-				<Profile/>
+			<main className="main">
+				<Sidebar state={props.state.sidebar} />
+				<div className="main__content">
+					<Route
+						path="/profile"
+						render={() => <Profile store={props.store} />}
+					/>
+					<Route
+						path="/dialogs"
+						render={() => <DialogsContainer store={props.store} />}
+					/>
+					<Route path="/news" render={() => <News />} />
+					<Route path="/music" render={() => <Music />} />
+					<Route path="/settings" render={() => <Settings />} />
+				</div>
 			</main>
 		</div>
 	)

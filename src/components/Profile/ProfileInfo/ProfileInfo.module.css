@@ -1,0 +1,22 @@
+
+.content__head img {
+	height: 150px;
+	width: 100%;
+	object-fit: cover;
+}
+.content__profile {
+	display: flex;
+	align-items: stretch;
+}
+.content__profile_avatar img {
+	max-height: 150px;
+}
+.content__profile_bio {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+.content__profile_name {
+	font-size: 20px;
+	margin-bottom: 20px;
+}

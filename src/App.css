@@ -35,122 +35,21 @@ a {
 	margin: 0 auto;
 	max-width: 80%;
 }
-
-.header {
-	background: papayawhip;
-	width: 100%;
-	max-height: 100px;
-}
-.header img {
-	max-height: 80px;
-}
 .main {
 	display: flex;
 	align-items: stretch;
 	margin: 10px 0;
 }
-.nav {
+
+.main__sidebar {
 	width: 20%;
-	font-size: 18px;
 	display: flex;
 	flex-direction: column;
 	background: darkkhaki;
 	padding: 10px;
 	margin-right: 10px;
 }
-.nav a:not(nav a:first-child){
-	margin-top: 10px;
-}
-.nav a:last-child {
-	margin-top: 30px !important;
-}
 
-.content {
+.main__content {
 	width: 100%;
-}
-.content__head {
-}
-.content__head img {
-	height: 150px;
-	width: 100%;
-	object-fit: cover;
-}
-.content__profile {
-	display: flex;
-	align-items: stretch;
-}
-.content__profile-avatar {
-}
-.content__profile-avatar img {
-	max-height: 150px;
-}
-.content__profile-bio {
-	display: flex;
-	flex-direction: column;
-	margin-left: 20px;
-}
-.content__profile-name {
-	font-size: 20px;
-	margin-bottom: 20px;
-}
-.content__profile-details {
-}
-.content__posts {
-	margin: 50px 100px 0 0;
-}
-.content__posts-title {
-	font-size: 23px;
-	margin-bottom: 15px;
-}
-.content__posts-head {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 15px;
-}
-.content__posts-input {
-	padding: 0 0 0 5px;
-	min-height: 50px;
-	outline: none;
-	border: 1px solid #eee;
-	margin-bottom: 10px;
-	font-size: 18px;
-	transition: all .3s;
-}
-.content__posts-input:hover{
-	box-shadow: 1px 3px 5px rgb(143, 150, 255);
-}
-.content__posts-btn {
-	display: flex;
-	padding: 10px 30px;
-	text-align: center;
-	margin: 0 0 0 auto;
-	background: wheat;
-	text-transform: lowercase;
-	font-size: 1rem;
-	border-radius: 5px;
-	border: 3px solid transparent;
-	transition: all .3s;
-}
-.content__posts-btn:hover{
-	opacity: .7;
-	border: 3px solid gainsboro;
-}
-.content__posts-btn:active{
-	opacity: .9;
-	border: 3px solid plum;
-}
-.content__posts-post {
-	display: flex;
-	padding-left: 20px;
-}
-.content__posts-post:not(:first-child){
-	margin-top: 15px;
-}
-.content__posts-post:before {
-	content: "";
-	flex: 0 0 20px;
-	margin-right: 10px;
-	background: sandybrown;
-	height: 20px;
-	border-radius: 50%;
 }

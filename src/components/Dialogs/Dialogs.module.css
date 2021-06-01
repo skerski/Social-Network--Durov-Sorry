@@ -1,0 +1,77 @@
+.dialogs {
+	display: flex;
+}
+.dialogs_left {
+	flex: 1 0 30%;
+	display: flex;
+	flex-direction: column;
+}
+.dialogs_left__item {
+	display: flex;
+	align-items: center;
+}
+.dialogs__item_avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	margin-right: 30px;
+}
+.dialogs__item_avatar img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	object-fit: cover;
+}
+.dialogs__item + .dialogs__item {
+	margin-top: 25px;
+}
+
+.dialogs_right {
+	flex: 0 1 70%;
+	display: flex;
+	flex-direction: column;
+}
+.dialogs_right__item {
+	display: flex;
+}
+.dialogs_right__author {
+	flex: 1 1 10%;
+	font-size: 15px;
+	white-space: nowrap;
+}
+.dialogs_right__message {
+	flex: 1 1 90%;
+	margin-left: 20px;
+}
+.dialogs_btn {
+	display: flex;
+	padding: 10px 30px;
+	text-align: center;
+	margin: 10px 0 0 auto;
+	background: wheat;
+	text-transform: lowercase;
+	font-size: 1rem;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.dialogs_btn:hover{
+	transform: scale(1.1);
+	border: 2px solid #fff;
+}
+.dialogs_btn:active{
+	border: 2px solid #500;
+}
+.dialogs_input {
+	padding: 0 0 0 5px;
+	margin-top: 20px;
+	min-height: 50px;
+	outline: none;
+	border: 1px solid #eee;
+	margin-bottom: 10px;
+	font-size: 18px;
+	transition: all .3s;
+}
+.dialogs_input:hover{
+	box-shadow: 1px 3px 5px rgb(143, 150, 255);
+}
