@@ -49,13 +49,13 @@ const dialogsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				messages: [...state.messages, newMessage],
-				newMessageText: '',
+				newMessageText: "",
 			}
 
 		case UPDATE_NEW_MESSAGE_TEXT:
 			return {
 				...state,
-				newMessageText: action.newText
+				newMessageText: action.newText,
 			}
 
 		default:
