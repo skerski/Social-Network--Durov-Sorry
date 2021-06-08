@@ -1,13 +1,12 @@
 import React from "react"
-import store from "../../redux/store"
 import MyPostsContainer from "./MyPosts/MyPostsContainer"
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 
 const Profile = props => {
-	console.log("profile store", props)
+	debugger
 	return (
 		<div>
-			<ProfileInfo />
+			<ProfileInfo profile={props.profile}/>
 			<MyPostsContainer />
 		</div>
 	)
