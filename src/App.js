@@ -1,7 +1,6 @@
 import React from "react"
 import { Route } from "react-router"
 import "./App.css"
-import Header from "./components/Header/Header"
 import Music from "./components/Music/Music"
 import News from "./components/News/News"
 import Settings from "./components/Settings/Settings"
@@ -10,11 +9,12 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer"
 import UsersContainer from "./components/Users/UsersContainer"
 import ProfileContainer from "./components/Profile/ProfileContainer"
 import store from "./redux/redux-store"
+import HeaderContainer from "./components/Header/HeaderContainer"
 
 const App = props => {
 	return (
 		<div className="wrapper">
-			<Header />
+			<HeaderContainer />
 			<main className="main">
 				<Sidebar state={store.getState().sidebar} />
 				<div className="main__content">
