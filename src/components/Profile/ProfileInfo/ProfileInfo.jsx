@@ -7,7 +7,7 @@ const ProfileInfo = props => {
 		return <Preloader />
 	}
 	return (
-		<div>
+		<>
 			<div className={s.content__head}>
 				<img src="https://cdn.turkishairlines.com/m/3f9a1548ee9de341/original/1400-660-jpg.jpg" />
 			</div>
@@ -30,7 +30,7 @@ const ProfileInfo = props => {
 					</ul>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 // const ProfileInfo = props => {
@@ -44,7 +44,7 @@ const ProfileInfo = props => {
 // 			</div>
 // 			<div className={s.content__profile}>
 // 				<div className={s.content__profile_avatar}>
-// 					<img src={props.profile.photos.large} />
+// 					<img src="https://i.ibb.co/jDWJ1L9/me.jpg" />
 // 				</div>
 // 				<div className={s.content__profile_bio}>
 // 					<div className={s.content__profile_name}>Max Skurski</div>

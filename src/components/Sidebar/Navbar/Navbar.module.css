@@ -3,6 +3,7 @@
 }
 .nav__item a {
 	color: #310;
+	transition: all .05s ease-in;
 }
 .nav__item a.active {
 	color: #fff;
