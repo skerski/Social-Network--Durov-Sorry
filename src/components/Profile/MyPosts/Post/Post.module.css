@@ -30,4 +30,5 @@
 }
 .post__likes{
 	white-space: nowrap;
+	padding-left: 1em;
 }
