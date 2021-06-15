@@ -1,45 +1,45 @@
-import { usersAPI } from "../api/api"
+import { profileAPI, usersAPI } from "../api/api"
 
-const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
 const ADD_POST = "ADD_POST"
 const SET_USER_PROFILE = "SET_USER_PROFILE"
+const SET_STATUS = "SET_STATUS"
 
 let initialState = {
 	posts: [
 		{
-			likes: 15,
+			likes: 0,
 			img:
-				"https://i.dailymail.co.uk/i/pix/2014/04/09/article-2599775-6OgQfEryD-HSK1-700_634x796.jpg",
+				"https://jooinn.com/images/woman-1.jpg",
 			text:
-				"Hi Max, are you awaited for strolling all the summers night or you choose your Front-end again?",
+				"Hi Max, are you awaited for strolling all the summers nights or you choose your Front-end again?",
 		},
 		{
-			likes: 200,
+			likes: 15681,
 			img: "https://jooinn.com/images/man-20.jpg",
-			text: "Its my new app, trying to forget about the semicolons.... x)",
+			text: "New app is cool, Durov sorry but it just seems when you are getting older you cant handle everything as before. It's a new day, it's a new life  x)",
+		},
+		{
+			likes: 207222,
+			img: "https://jooinn.com/images/man-9.jpg",
+			text: "Bitcoin will hit 100k until 2022",
 		},
 	],
-	newPostText: "Bitcoin will hit 100k until 2022",
 	profile: null,
+	status: "",
 }
 
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST:
+			let text = action.newPostElement
 			let newPost = {
 				id: state.posts.length,
-				text: state.newPostText,
+				text,
 				likes: 0,
 			}
 			return {
 				...state,
 				posts: [...state.posts, newPost],
-				newPostText: "",
-			}
-		case UPDATE_NEW_POST_TEXT:
-			return {
-				...state,
-				newPostText: action.newText,
 			}
 
 		case SET_USER_PROFILE:
@@ -48,18 +48,20 @@ const profileReducer = (state = initialState, action) => {
 				profile: action.profile,
 			}
 
+		case SET_STATUS:
+			return {
+				...state,
+				status: action.status,
+			}
+
 		default:
 			return state
 	}
 }
 
-export const addPostActionCreator = () => ({
+export const addPostActionCreator = (newPostElement) => ({
 	type: ADD_POST,
-})
-
-export const updateNewPostTextActionCreator = text => ({
-	type: UPDATE_NEW_POST_TEXT,
-	newText: text,
+	newPostElement
 })
 
 export const setUserProfile = profile => ({
@@ -67,10 +69,30 @@ export const setUserProfile = profile => ({
 	profile: profile,
 })
 
-export const getUserProfile = userId => (dispatch) => {
+export const setStatus = status => ({
+	type: SET_STATUS,
+	status,
+})
+
+export const getUserProfile = userId => dispatch => {
 	usersAPI.getProfile(userId).then(response => {
-			dispatch(setUserProfile(response.data))
-		})
+		dispatch(setUserProfile(response.data))
+	})
+}
+
+export const getStatus = userId => dispatch => {
+	profileAPI.getStatus(userId).then(response => {
+		debugger
+		dispatch(setStatus(response.data))
+	})
+}
+
+export const updateStatus = status => dispatch => {
+	profileAPI.updateStatus(status).then(response => {
+		if (response.data.resultCode === 0) {
+			dispatch(setStatus(status))
+		}
+	})
 }
 
 export default profileReducer
