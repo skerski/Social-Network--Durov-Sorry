@@ -5,7 +5,7 @@ const SidebarFriends = props => {
 	let state = props.state.friends
 	
 	let myFriends = state.map(friend => (
-		<div className={s.sidebar_friends__item}>
+		<div className={s.sidebar_friends__item} key={friend.id}>
 			<img src={friend.img} />
 		</div>
 	))

@@ -8,7 +8,6 @@ import {
 } from "../../redux/users-reducer"
 import Users from "./Users"
 import Preloader from "../Common/Preloader/Preloader"
-import { usersAPI } from "../../api/api"
 
 class UsersContainer extends React.Component {
 	componentDidMount() {

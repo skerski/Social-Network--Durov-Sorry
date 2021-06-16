@@ -4,7 +4,6 @@ import {
 	addPostActionCreator,
 	updateNewPostTextActionCreator,
 } from "../../../redux/profile-reducer"
-import store from "../../../redux/redux-store"
 import MyPosts from "./MyPosts"
 
 // const MyPostsContainer = props => {

@@ -11,11 +11,11 @@ const ProfileInfo = props => {
 	return (
 		<>
 			<div className={s.content__head}>
-				<img src="https://cdn.turkishairlines.com/m/3f9a1548ee9de341/original/1400-660-jpg.jpg" />
+				<img alt={"background"} src="https://cdn.turkishairlines.com/m/3f9a1548ee9de341/original/1400-660-jpg.jpg" />
 			</div>
 			<div className={s.content__profile}>
 				<div className={s.content__profile_avatar}>
-					<img src={props.profile.photos.large || userPhoto} />
+					<img alt={"avatar"} src={props.profile.photos.large || userPhoto} />
 				</div>
 				<div className={s.content__profile_bio}>
 					<ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
