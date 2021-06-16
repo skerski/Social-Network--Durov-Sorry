@@ -4,6 +4,9 @@ import DialogItem from "./DialogItem/DialogsItem"
 import Message from "./Message/Message"
 import { Redirect } from "react-router-dom"
 import { reduxForm, Field } from "redux-form"
+import { Textarea } from "../Common/FormsControls/FormsControls"
+import { maxLengthCreator, minLengthCreator, required } from "../../utils/validators/validators"
+import AddMessageForm from "./AddMessageForm/AddMessageForm"
 
 const Dialogs = props => {
 	console.log("dialogs", props)
@@ -11,21 +14,20 @@ const Dialogs = props => {
 	let state = props.dialogsPage
 
 	let dialogsElements = state.dialogs.map(dialog => (
-		<DialogItem name={dialog.name} id={dialog.id} img={dialog.img} />
+		<DialogItem name={dialog.name} id={dialog.id} key={dialog.id} img={dialog.img} />
 	))
 
 	let messagesElements = state.messages.map(message => (
-		<Message message={message.message} />
+		<Message message={message.message} key={message.id}/>
 	))
 
 	let onAddMessage = () => {
 		props.addMessage()
 	}
 
-	let addMessage = (values) => {
+	let addMessage = values => {
 		props.addMessage(values.newMessageText)
 	}
-
 
 	if (!props.isAuth) return <Redirect to={"/Login"} />
 
@@ -34,25 +36,10 @@ const Dialogs = props => {
 			<div className={s.dialogs_left}>{dialogsElements}</div>
 			<div className={s.dialogs_right}>
 				{messagesElements}
-				<DialogsReduxForm onSubmit={addMessage}/>
+				<AddMessageForm onSubmit={addMessage} />
 			</div>
 		</div>
 	)
 }
-
-const dialogsForm = props => {
-	return (
-		<form onSubmit={props.handleSubmit} className={s.dialogs_form}>
-			<Field
-				className={s.dialogs_input}
-				placeholder={"write something =)"}
-				name={"newMessageText"}
-				component={"textarea"}
-			/>
-			<button className={s.dialogs_btn}>Send message</button>
-		</form>
-	)
-}
-const DialogsReduxForm = reduxForm({ form: "dialogs" })(dialogsForm)
 
 export default Dialogs

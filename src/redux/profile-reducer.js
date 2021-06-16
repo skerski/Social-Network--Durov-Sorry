@@ -12,16 +12,19 @@ let initialState = {
 				"https://jooinn.com/images/woman-1.jpg",
 			text:
 				"Hi Max, are you awaited for strolling all the summers nights or you choose your Front-end again?",
+			id: 1,
 		},
 		{
 			likes: 15681,
 			img: "https://jooinn.com/images/man-20.jpg",
 			text: "New app is cool, Durov sorry but it just seems when you are getting older you cant handle everything as before. It's a new day, it's a new life  x)",
+			id: 2,
 		},
 		{
 			likes: 207222,
 			img: "https://jooinn.com/images/man-9.jpg",
 			text: "Bitcoin will hit 100k until 2022",
+			id: 3,
 		},
 	],
 	profile: null,
@@ -82,7 +85,6 @@ export const getUserProfile = userId => dispatch => {
 
 export const getStatus = userId => dispatch => {
 	profileAPI.getStatus(userId).then(response => {
-		debugger
 		dispatch(setStatus(response.data))
 	})
 }
