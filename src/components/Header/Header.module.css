@@ -1,5 +1,6 @@
 .header {
-	background: papayawhip;
+	background: linear-gradient(135deg, rgb(250, 196, 110), rgba(255, 239, 213, 0.5)),
+		linear-gradient(225deg, rgba(255, 239, 213, 1), rgba(255, 239, 213, 0.5));
 	width: 100%;
 	max-height: 100px;
 	display: flex;
@@ -9,7 +10,15 @@
 .header img {
 	max-height: 80px;
 }
-.header__login{
+.header__login {
 	padding-right: 5%;
 	font-size: 1em;
+}
+.auth__button{
+	min-height: 1em;
+	padding: 1em;
+	font-size: 1em;
+	background: none;
+	font-weight: 500;
+	transition: all .3s;
 }
