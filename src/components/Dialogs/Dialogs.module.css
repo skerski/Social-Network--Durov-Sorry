@@ -67,6 +67,7 @@
 	border: 2px solid #500;
 }
 .dialogs_input {
+	width: 100%;
 	padding: 0 0 0 5px;
 	margin-top: 20px;
 	min-height: 50px;
