@@ -1,7 +1,6 @@
-const ADD_MESSAGE = "ADD_MESSAGE"
-const REMOVE_MESSAGE = "REMOVE_MESSAGE"
+import dialogsReducer, { addMessageActionCreator, removeMessageActionCreator } from "./dialogs-reducer"
 
-let initialState = {
+let state = {
 	dialogs: [
 		{
 			id: 0,
@@ -38,36 +37,18 @@ let initialState = {
 	],
 }
 
-const dialogsReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case ADD_MESSAGE:
-			let text = action.newMessageText
-			let newMessage = {
-				id: state.messages.length,
-				message: text,
-			}
-			return {
-				...state,
-				messages: [...state.messages, newMessage],
-			}
-		case REMOVE_MESSAGE:
-			return {
-				...state,
-				messages: state.messages.filter(mes => mes.id != action.messageId),
-			}
-		default:
-			return state
-	}
-}
+it('length of messages gotta be incremented', () => {
+	let action = addMessageActionCreator("polgorod")
 
-export const addMessageActionCreator = (newMessageText) => ({
-	type: ADD_MESSAGE,
-	newMessageText
+	let newState = dialogsReducer(state, action)
+
+	expect(newState.messages.length).toBe(5)
 })
 
-export const removeMessageActionCreator = (messageId) => ({
-	type: REMOVE_MESSAGE,
-	messageId
-})
+it('after message will be removed array length should be decremented', () => {
+	let action = removeMessageActionCreator(2)
 
-export default dialogsReducer
+	let newState = dialogsReducer(state, action)
+
+	expect(newState.messages.length).toBe(3)
+})

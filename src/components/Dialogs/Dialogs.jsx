@@ -3,13 +3,9 @@ import s from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogsItem"
 import Message from "./Message/Message"
 import { Redirect } from "react-router-dom"
-import { reduxForm, Field } from "redux-form"
-import { Textarea } from "../Common/FormsControls/FormsControls"
-import { maxLengthCreator, minLengthCreator, required } from "../../utils/validators/validators"
 import AddMessageForm from "./AddMessageForm/AddMessageForm"
 
 const Dialogs = props => {
-	console.log("dialogs", props)
 
 	let state = props.dialogsPage
 
@@ -20,10 +16,6 @@ const Dialogs = props => {
 	let messagesElements = state.messages.map(message => (
 		<Message message={message.message} key={message.id}/>
 	))
-
-	let onAddMessage = () => {
-		props.addMessage()
-	}
 
 	let addMessage = values => {
 		props.addMessage(values.newMessageText)

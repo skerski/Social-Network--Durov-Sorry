@@ -11,15 +11,15 @@ import { compose } from "redux"
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
-		// let userId = this.props.match.params.userId || 17533
-		let userId = this.props.match.params.userId || this.props.authorizedUserId || this.props.history.push("/login")
-		debugger
+		let userId =
+			this.props.match.params.userId ||
+			this.props.authorizedUserId ||
+			this.props.history.push("/login")
 		this.props.getUserProfile(userId)
 		this.props.getStatus(userId)
 	}
 
 	render() {
-		// if (!this.props.isAuth) return <Redirect to={"/Login"} />
 		return (
 			<Profile
 				{...this.props}
@@ -41,13 +41,4 @@ let mapStateToProps = state => ({
 export default compose(
 	connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
 	withRouter
-	// withAuthRedirect
 )(ProfileContainer)
-
-// let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
-
-// let WithRouterProfileContainer = withRouter(AuthRedirectComponent)
-
-// export default connect(mapStateToProps, { getUserProfile })(
-// 	WithRouterProfileContainer
-// )
