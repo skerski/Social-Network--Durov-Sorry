@@ -8,8 +8,6 @@
 .nav__item a.active {
 	color: #fff;
 }
-/* .nav__item___active a {
-} */
 .nav__item:not(.nav__item:first-child) {
 	margin-top: 10px;
 }

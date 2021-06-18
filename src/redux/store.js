@@ -83,35 +83,6 @@ let store = {
 		console.log("Store was changed")
 	},
 
-	// _addPost() {
-	// 	let newPost = {
-	// 		id: this._state.profilePage.posts.length,
-	// 		text: this._state.profilePage.newPostText,
-	// 		likes: 0,
-	// 	}
-	// 	this._state.profilePage.newPostText = ""
-	// 	this._state.profilePage.posts.push(newPost)
-	// 	// this._callSubscriber(this._state)
-	// },
-	// _updateNewPostText(newText) {
-	// 	this._state.profilePage.newPostText = newText
-	// 	// this._callSubscriber(this._state)
-	// },
-
-	// _addMessage() {
-	// 	let newMessage = {
-	// 		id: this._state.dialogsPage.messages.length,
-	// 		message: this._state.dialogsPage.newMessageText,
-	// 	}
-	// 	this._state.dialogsPage.newMessageText = ""
-	// 	this._state.dialogsPage.messages.push(newMessage)
-	// 	// this._callSubscriber(this._state)
-	// },
-	// _updateNewMessageText(newText) {
-	// 	this._state.dialogsPage.newMessageText = newText
-	// 	// this._callSubscriber(this._state)
-	// },
-
 	getState() {
 		return this._state
 	},

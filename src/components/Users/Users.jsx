@@ -16,6 +16,7 @@ let Users = props => {
 				if (p < 100) {
 					return (
 						<span
+							key={p.id}
 							className={
 								props.currentPage === p ? classes.selectedPage : undefined
 							}
